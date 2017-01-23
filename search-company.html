@@ -97,7 +97,7 @@ Example:
   params="{{_params}}"
   on-response="_searchSymbolResponse"
   on-error="_searchSymbolResponseError"
-  timeout-duration="500"></byutv-jsonp>
+  timeout-duration="1000"></byutv-jsonp>
   <input id="company" value="{{company::input}}" placeholder="Company"/>
   <template is="dom-if" if="{{_showBox(company,_selected)}}">
     <div class="results" loading$="{{_loading}}" error$="{{_error}}">

@@ -102,7 +102,7 @@ Example:
     <iron-ajax id="searchCompany" url="https://centauro.ls.fi.upm.es:4444/company?q={{company}}" on-response="_searchSymbolResponse"
       on-error="_searchSymbolResponseError"></iron-ajax>
 
-    <input id="company" value="{{company::input}}" placeholder="Company"></input>
+    <input aria-label="type a company name" id="company" value="{{company::input}}" placeholder="Company"></input>
     <template is="dom-if" if="{{_showBox(company,_selected)}}">
       <div class="results" loading$="{{_loading}}" error$="{{_error}}">
         <template is="dom-repeat" items="{{_list}}">

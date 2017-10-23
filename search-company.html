@@ -106,7 +106,7 @@ Example:
     <template is="dom-if" if="{{_showBox(company,_selected)}}">
       <div class="results" loading$="{{_loading}}" error$="{{_error}}">
         <template is="dom-repeat" items="{{_list}}">
-          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.symbol}}">{{item.name}}</p>
+          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.t}}">{{item.n}}</p>
         </template>
         <template is="dom-if" if="{{_error}}">
           <p class="option">No results</p>
@@ -199,8 +199,8 @@ Example:
       },
       _searchSymbolResponse: function (event, detail) {
         this._loading = false;
-        if (detail.response && detail.response.ResultSet && detail.response.ResultSet.Result.length > 0) {
-          this.set('_list', detail.response.ResultSet.Result);
+        if (detail.response && detail.response.matches && detail.response.matches.length > 0) {
+          this.set('_list', detail.response.matches);
         } else {
           this.fire('search-company-error', detail);
         }

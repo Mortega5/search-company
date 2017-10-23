@@ -106,7 +106,7 @@ Example:
     <template is="dom-if" if="{{_showBox(company,_selected)}}">
       <div class="results" loading$="{{_loading}}" error$="{{_error}}">
         <template is="dom-repeat" items="{{_list}}">
-          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.t}}">{{item.n}}</p>
+          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.e}}:{{item.t}}">{{item.n}}</p>
         </template>
         <template is="dom-if" if="{{_error}}">
           <p class="option">No results</p>

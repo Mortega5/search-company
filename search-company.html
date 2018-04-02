@@ -99,14 +99,14 @@ Example:
         height: 20px;
       }
     </style>
-    <iron-ajax id="searchCompany" url="https://centauro.ls.fi.upm.es:4444/company?q={{company}}" on-response="_searchSymbolResponse"
+    <iron-ajax id="searchCompany" url="https://centauro.ls.etsiinf.upm.es:4444/company?q={{company}}" on-response="_searchSymbolResponse"
       on-error="_searchSymbolResponseError"></iron-ajax>
 
     <input aria-label="type a company name" id="company" value="{{company::input}}" placeholder="Company"></input>
     <template is="dom-if" if="{{_showBox(company,_selected)}}">
       <div class="results" loading$="{{_loading}}" error$="{{_error}}">
         <template is="dom-repeat" items="{{_list}}">
-          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.e}}:{{item.t}}">{{item.n}}</p>
+          <p class="option" on-click="_select" data-index$="{{index}}" data-symbol$="{{item.x}}:{{item.t}}">{{item.c}}</p>
         </template>
         <template is="dom-if" if="{{_error}}">
           <p class="option">No results</p>
@@ -199,8 +199,8 @@ Example:
       },
       _searchSymbolResponse: function (event, detail) {
         this._loading = false;
-        if (detail.response && detail.response.matches && detail.response.matches.length > 0) {
-          this.set('_list', detail.response.matches);
+        if (detail.response && detail.response.search.length > 0) {
+          this.set('_list', detail.response.search);
         } else {
           this.fire('search-company-error', detail);
         }
